@@ -14,7 +14,7 @@ Now that you have some compute resources that you can use to process data, you'l
 
 3. Create a new dataset from local files, using the following settings:
 
-    ![](images/datasets1.png)
+    ![](images/DP-100.png)
     
     * **Basic Info**:
         * **Name**: diabetes dataset
@@ -83,7 +83,7 @@ To get started with designer, first you must create a pipeline and add the datas
 
 Before you can train a model, you typically need to apply some preprocessing transformations to the data.
 
-1. In the pane on the left, expand the **Data Transformation** section, which contains a wide range of modules you can use to transform data before model training.
+1. In the pane on the left, select the Component tab, which contains a wide range of components you can use to transform data before model training. You can search for components at the top of the pane.
 
 2. Drag a **Normalize Data** module to the canvas, below the **diabetes dataset** module. Then connect the output from the **diabetes dataset** module to the input of the **Normalize Data** module.
 
@@ -235,7 +235,7 @@ Now you have an inference pipeline for real-time inferencing, which you can depl
     
     ![new-pipeline](images/deploy2.png)    
 
-3. Wait for the web service to be deployed - this can take several minutes. The deployment status is shown at the top left of the designer interface.
+3. Wait for the web service to be deployed - this can take several minutes(Approx 30 Minutes). The deployment status is shown at the top left of the designer interface.
 
 ## Test the web service
 

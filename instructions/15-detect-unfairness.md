@@ -32,6 +32,11 @@ In this exercise, the code to evaluate models for fairness is provided in a note
 
 3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu.
 
+>**Note**: You might get the following error,Ignore it and carry on with running the next cells. 
+
+![](images/lab-15-warning.png)
+
+   
 4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
 
 

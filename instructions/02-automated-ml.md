@@ -45,11 +45,11 @@ Now that you have some compute resources that you can use to process data, you'l
 
 1. On the LabVM browser open new tab and browse https://aka.ms/diabetes-data. Click **ctrl+s** to save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
 
-2. In Azure Machine Learning studio, view the **Datasets** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
+2. In Azure Machine Learning studio, view the **Data** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
 
 3. Create a new dataset from local files, using the following settings:
 
-    ![](images/datasets1.png)
+    ![](images/data-new.png)
     
     * **Basic Info**:
         * **Name**: diabetes dataset
@@ -87,7 +87,7 @@ Now that you have some compute resources that you can use to process data, you'l
 
 4. After the dataset has been created, open it and view the **Explore** page to see a sample of the data. This data represents details from patients who have been tested for diabetes, and you will use it to train a model that predicts the likelihood of a patient testing positive for diabetes based on clinical measurements.
 
-    ![](images/datasets5.png)
+    ![](images/data-new-2.png)
     
     > **Note**: You can optionally generate a *profile* of the dataset to see more statistical details.
 
@@ -113,27 +113,30 @@ In Azure Machine Learning, operations that you run are called *experiments*. Fol
     
     - **Task type and settings**:
         - **Task type**: Classification
-        - Select **View additional configuration settings** to open **Additional configurations**:
+        - Select **View additional configuration settings** to open **Additional configurations** and select **Save**:
+    ![](images/additionalconfigsettings.png)
             - **Primary metric**: Select **AUC_Weighted** *(more about this metric later!)*
             - **Explain best model**: Selected - *this option causes automated machine learning to calculate feature importance for the best model; making it possible to determine the influence of each feature on the predicted label.*
-            - **Blocked algorithms**: Leave the default setting - *all algorithms can potentially be used when training*
+            - **Use all supported models**: Unselected - *we'll restrict the experiment to try a few specific algorithms*.
+            - **Allowed models**:  Select only **LogisticRegressions** and **RandomForest** - *These will be the only algorithms tried in the experiment.*        
             - **Exit criterion**:
                 - **Training job time (hours)**: 0.5 - *this causes the experiment to end after a maximum of 30 minutes.*
                 - **Metric score threshold**: 0.90 - *this causes the experiment to end if a model achieves a weighted AUC metric of 90% or higher.*
 
-    ![](images/additionalconfigsettings.png)
-    ![](images/additionalconfigsettings2.png)
+    ![](images/additional-setting.png)
 
       - Select **View featurization settings** to open **Featurization**:
             - **Enable featurization**: Selected - *this causes Azure Machine Learning to automatically preprocess the features before training.*
+    ![](images/featuredconfig1.png)
+    ![](images/additionalconfigsettings3.png)
 
    - **Select the validation and test type**:
         - **Validation type**: Train-validation split
         - **Percentage validation of data**: 30
         - **Test dataset**: No test dataset required
    
-    ![](images/featuredconfig1.png)
-    ![](images/additionalconfigsettings3.png)
+    ![](images/validation-test.png)
+
     
 3. When you finish submitting the automated ML run details, it will start automatically. You can observe the status of the run in the **Properties** pane.
 
@@ -148,7 +151,7 @@ In Azure Machine Learning, operations that you run are called *experiments*. Fol
 
 After the experiment has finished; you can review the best performing model that was generated (note that in this case, we used exit criteria to stop the experiment - so the "best" model found by the experiment may not be the best possible model, just the best one found within the time and metric constraints allowed for this exercise!).
 
-1. On the **Details** tab of the automated machine learning run, note the best model summary.
+1. On the **Overview** tab of the automated machine learning run, note the best model summary.
 
 2. Select the **Algorithm name** for the **best model** to view the child-run that produced it.
 
@@ -162,13 +165,8 @@ After the experiment has finished; you can review the best performing model that
 4. Select the **Metrics** tab and review the performance metrics you can view for the model. These include a **confusion_matrix** visualization showing the confusion matrix for the validated model, and an **accuracy_table** visualization that includes the ROC chart.
 
     ![](images/step44.png)
-
-
-5. Select the **Explanations(preview)** tab, and view the **Global Importance** chart. This shows the extent to which each feature in the dataset influences the label prediction.
-
-   **Note**: It will take few minutes to reflect.
-   
-6. Select the **Explanations** tab, select an **Explanation ID**, and then view the **Aggregate Importance** page. This shows the extent to which each feature in the dataset influences the label prediction.
+  
+5. Select the **Explanations(Preview)** tab, select an **Explanation ID**, and then view the **Aggregate Importance** page. This shows the extent to which each feature in the dataset influences the label prediction.
 
 
 ## Deploy a predictive service

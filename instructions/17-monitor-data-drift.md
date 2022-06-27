@@ -30,7 +30,12 @@ In this exercise, the code to monitor data drift is provided in a notebook.
 
     ![](images/monitordata.png)
 
+>**Note**: If you see a pop up saying **Kernel Not Found**, From the dropdown select the **Python 3.8 - AzureML** and **Set Kernel**
+
+   ![](images/kernel-not-found.png)
+
 3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu.
 
-4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
+>**Note**: While running the cells, you might get an error saying **Datastore.upload** is deprecated. Ignore it and carry on with running the next cells.
 
+4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.

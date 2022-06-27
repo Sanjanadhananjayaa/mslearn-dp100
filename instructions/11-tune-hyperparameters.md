@@ -34,5 +34,12 @@ In this exercise, the code to run a hyperparameter tuning experiment is provided
 
 3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu.
 
+
+>**Note**: If you see a pop up saying **Kernel Not Found**, From the dropdown select the **Python 3.8 - AzureML** and **Set Kernel**
+
+![](images/kernel-not-found.png)
+
+>**Note**: While running the cells, you might get an error saying **Datastore.upload** is deprecated. Ignore it and carry on with running the next cells.
+
 4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
 
