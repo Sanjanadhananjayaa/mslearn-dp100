@@ -12,11 +12,11 @@ In this exercise, you'll use the visual interface for automated machine learning
 
 To use automated machine learning, you require compute on which to run the model training experiment.
 
-1. Sign into Azure Portal(https://portal.azure.com) with the login credentials provided in the environment details page, navigate to resource groups and open the resource group **dp-100-{DeploymentID}** 
+1. Sign into Azure Portal(https://portal.azure.com) with the login credentials provided in the environment details page, navigate to resource groups and open the resource group **dp-100-<inject key="DeploymentID" enableCopy="false"/>**
 
-    **Note**: Deployment ID can be obtained from the Lab Environment details page.
+    
 
-2. Click on Machine Learning with name **quick-start-ws-{DeploymentID}** from the list of resources, then click on **launch studio** to open Azure Machine Learning Workspace.
+2. Click on Machine Learning with name **quick-start-ws-<inject key="DeploymentID" enableCopy="false"/>** from the list of resources, then click on **launch studio** to open Azure Machine Learning Workspace.
 
 3. Switch to the **Compute** tab on the left panel then click on **Compute clusters** tab.
 
@@ -27,7 +27,7 @@ To use automated machine learning, you require compute on which to run the model
     - **Virtual Machine type**: CPU
     - **Virtual Machine size**: Standard_DS11_v2
     - Select **Next**
-    - **Compute name**: enter name as *aml-compute*
+    - **Compute name**: enter name as *aml-compute<inject key="DeploymentID" enableCopy="false"/>*
     - **Minimum number of nodes**: 0
     - **Maximum number of nodes**: 2
     - **Idle seconds before scale down**: 120
@@ -49,24 +49,26 @@ Now that you have some compute resources that you can use to process data, you'l
 
 3. Create a new dataset from local files, using the following settings:
 
-    ![](images/data-new.png)
+    ![](images/create.png)
     
     * **Basic Info**:
-        * **Name**: diabetes dataset
+        * **Name**: diabetesdataset
         * **Dataset type**: Tabular
         * **Description**: Diabetes data
         
-    ![](images/datasets2.png)
+    ![](images/datasetss2.png)
+    
+    ![](images/localfiles.png)
     
     * **Datastore and file selection**:
         * **Select or create a datastore**: Currently selected datastore
         * **Select files for your dataset**: click on upload and Browse to the **diabetes.csv** file you downloaded.
         * **Upload path**: *Leave the default selection*
-        * **Skip data validation**: Not selected
         
-    ![](images/19.png)  
+        
+    ![](images/next.png)  
     
-    ![](images/20.png)
+    ![](images/upload&next.png)
     
     * **Settings and preview**:
         * **File format**: Delimited
@@ -75,7 +77,7 @@ Now that you have some compute resources that you can use to process data, you'l
         * **Column headers**: only first file has headers
         * **Skip rows**: None
         
-    ![](images/21.png)
+    ![](images/next1.png)
     
     * **Schema**:
         * Include all columns other than **Path**
@@ -95,14 +97,14 @@ Now that you have some compute resources that you can use to process data, you'l
 
 In Azure Machine Learning, operations that you run are called *experiments*. Follow the steps below to run an experiment that uses automated machine learning to train a classification model that predicts diabetes diagnoses.
 
-1. In Azure Machine Learning studio, view the **Automated ML** page from the left panel under **Author**.
+1. In Azure Machine Learning studio, view the **Automated ML** page from the left panel under **Authoring**.
 
 2. Create a new Automated ML run with the following settings:
 
    ![](images/step-1-run.png)
 
     - **Select dataset**:
-        - **Dataset**: diabetes dataset
+        - **Dataset**: diabetesdataset
     - **Configure run**:
         - **New experiment name**: mslearn-automl-diabetes
         - **Target column**: Diabetic (*this is the label the model will be trained to predict)*
@@ -133,7 +135,7 @@ In Azure Machine Learning, operations that you run are called *experiments*. Fol
    - **Select the validation and test type**:
         - **Validation type**: Train-validation split
         - **Percentage validation of data**: 30
-        - **Test dataset**: No test dataset required
+        - **Test dataset**: No test data asset required
    
     ![](images/validation-test.png)
 
