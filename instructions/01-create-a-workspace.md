@@ -14,8 +14,8 @@ As its name suggests, a workspace is a centralized place to manage all of the Az
     ![](images/ml-workspace.png)
 
     - **Subscription**: *Your Azure subscription*
-    - **Resource group**: Select **dp-100-{DeploymentID}**
-    - **Workspace name**: **quick-starts-ws-{DeploymentID}**
+    - **Resource group**: Select **dp-100-<inject key="DeploymentID" enableCopy="false"/>**
+    - **Workspace name**: **quick-starts-ws-<inject key="DeploymentID" enableCopy="false"/>**
     - **Region**: **Select the geographical region closest to you**
     - **Storage account**: *Note the default new storage account that will be created for your workspace*
     - **Key vault**: *Note the default new key vault that will be created for your workspace*
@@ -28,7 +28,7 @@ As its name suggests, a workspace is a centralized place to manage all of the Az
 
 3. Click on **Review+create** then click on **Create**.
 
-4. When the deployment is completed, verify workspace and its associated resources in the **dp-100-{DeploymentID}** Resource Group.
+4. When the deployment is completed, verify workspace and its associated resources in the **dp-100-<inject key="DeploymentID" enableCopy="false"/>** Resource Group.
 
 ## Explore Azure Machine Learning studio
 
