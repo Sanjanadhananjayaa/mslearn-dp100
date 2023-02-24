@@ -2,7 +2,7 @@
 
 This repository contains the hands-on lab exercises for Microsoft course [DP-100 *Designing and Implementing a Data Science Solution on Azure*](https://docs.microsoft.com/learn/certifications/courses/dp-100t01) and the equivalent [self-paced modules on Microsoft Learn](https://docs.microsoft.com/learn/paths/build-ai-solutions-with-azure-ml-service/). The labs are designed to accompany the learning materials and enable you to practice using the technologies described them.
 
-You can view the instructions for the lab exercises at **[https://aka.ms/mslearn-dp100](https://aka.ms/mslearn-dp100)**.
+When using these labs in an instructoe-led course, students should use the Azure subscription provided for the course.
 
 ## What are we doing?
 

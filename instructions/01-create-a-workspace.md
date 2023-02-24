@@ -14,8 +14,8 @@ As its name suggests, a workspace is a centralized place to manage all of the Az
 1. In the [Azure portal](https://portal.azure.com), create a new **Machine Learning** resource, specifying the following settings:
 
     - **Subscription**: *Your Azure subscription*
-    - **Resource group**: *Create or select a resource group*
-    - **Workspace name**: *Enter a unique name for your workspace*
+    - **Resource group**: `rg-dp100-labs`
+    - **Workspace name**: `mlw-dp100-labs`
     - **Region**: *Select the geographical region closest to you*
     - **Storage account**: *Note the default new storage account that will be created for your workspace*
     - **Key vault**: *Note the default new key vault that will be created for your workspace*
@@ -50,38 +50,51 @@ One of the benefits of Azure Machine Learning is the ability to create cloud-bas
     For this exercise, you'll create a compute instance so you can run some code in your workspace.
 
 2. On the **Compute instances** tab, add a new compute instance with the following settings. You'll use this as a workstation to run code in notebooks.
-    - **Region**: *The same region as your workspace*
+    - **Compute name**: *enter a unique name*
+    - **Location**: *The same location as your workspace*
     - **Virtual machine type**: CPU
     - **Virtual machine size**: Standard_DS11_v2
-    - **Compute name**: *enter a unique name*
-    - **Enable SSH access**: Unselected (you can use this to enable direct access to the virtual machine using an SSH client)
+    - **Total Available Quotas**: This shows dedicated cores available.
     - **Show advanced settings**: Note the following settings, but do not select them:
-        - **Enable virtual network**: Unselected (you would typically use this in an enterprise environment to enhance network security)
-        - **Assign to another user**: Unselected (you can use this to assign a compute instance to a data scientist)
-3. Wait for the compute instance to start and its status to change to **Running**.
+        - **Enable SSH access**: Unselected *(you can use this to enable direct access to the virtual machine using an SSH client)*
+        - **Enable virtual network**: Unselected *(you would typically use this in an enterprise environment to enhance network security)*
+        - **Assign to another user**: Unselected *(you can use this to assign a compute instance to a data scientist)*
+        - **Provision with setup script**: Unselected *(you can use this to add a script to run on the remote instance when created)*
+
+3. Wait for the compute instance to start and its state to change to **Running**.
+
+> **Note**:
+> Compute instances and clusters are based on standard Azure virtual machine images. For this exercise, the *Standard_DS11_v2* image is recommended to achieve the optimal balance of cost and performance. If your subscription has a quota that does not include this image, choose an alternative image; but bear in mind that a larger image may incur higher cost and a smaller image may not be sufficient to complete the tasks. Alternatively, ask your Azure administrator to extend your quota.
 
 ## Clone and run a notebook
 
-A lot of data science and machine learning experimentation is performed by running code in *notebooks*. Your compute instance includes fully featured Python notebook environments (*Jupyter* and *JuypyterLab*) that you can use for extensive work; but for basic notebook editing, you can use the built-in **Notebooks** page in Azure Machine learning studio.
+A lot of data science and machine learning experimentation is performed by running code in *notebooks*. Your compute instance includes fully featured Python notebook environments (*Jupyter* and *JupyterLab*) that you can use for extensive work; but for basic notebook editing, you can use the built-in **Notebooks** page in Azure Machine learning studio.
 
 1. In Azure Machine Learning studio, view the **Notebooks** page.
-2. Open a **Terminal**, and ensure its **Compute** is set to your compute instance.
-3. Enter the following commands to clone a Git repository containing notebooks, data, and other files to your workspace:
+2. If a message describing new features is displayed, close it.
+3. Select **Terminal** or the **Open terminal** icon to open a terminal, and ensure that its **Compute** is set to your compute instance and that the current path is the **/users/your-user-name** folder.
+4. Enter the following command to clone a Git repository containing notebooks, data, and other files to your workspace:
 
     ```bash
-    cd Users
-    git clone https://github.com/MicrosoftLearning/mslearn-dp100
+    git clone https://github.com/MicrosoftLearning/mslearn-dp100 mslearn-dp100
     ```
 
-4. When the command has completed, in the **My files** pane, click **&#8635;** to refresh the view and verify that a new **Users/mslearn-dp100** folder has been created. This folder contains multiple **.ipynb** notebook files.
-5. Close the terminal pane, terminating the session.
-6. In the **Users/mslearn-dp100** folder, open the **Get Started with Notebooks** notebook. Then read the notes and follow the instructions it contains.
+5. When the command has completed, in the **Files** pane, click **&#8635;** to refresh the view and verify that a new **/users/*your-user-name*/mslearn-dp100** folder has been created. This folder contains multiple **.ipynb** notebook files.
+6. Close the terminal pane, terminating the session.
+7. In the **/users/*your-user-name*/mslearn-dp100** folder, open the **Get Started with Notebooks** notebook. Then read the notes and follow the instructions it contains.
 
 > **Tip**: To run a code cell, select the cell you want to run and then use the **&#9655;** button to run it.
 
-## Stop your compute instance
+> **New to Python?** Use the [Python cheat sheet](cheat-sheets/dp100-cheat-sheet-python.pdf) to understand the code.
 
-If you've finished exploring Azure Machine Learning for now, you should shut down your compute instance to avoid incurring unnecessary charges in your Azure subscription.
+> **New to machine learning?** Use the [machine learning overview](cheat-sheets/dp100-cheat-sheet-machine-learning.pdf) to get a simplified overview of the machine learning process in Azure Machine Learning.
 
-1. In Azure Machine Learning studio, on the **Compute** page, select your compute instance.
-2. Click **Stop** to stop your compute instance. When it has shut down, its status will change to **Stopped**.
+## Delete Azure resources
+
+When you finish exploring Azure Machine Learning, you should delete the resources you've created to avoid unnecessary Azure costs.
+
+1. Close the Azure Machine Learning Studio tab and return to the Azure portal.
+1. In the Azure portal, on the **Home** page, select **Resource groups**.
+1. Select the **rg-dp100-labs** resource group.
+1. At the top of the **Overview** page for your resource group, select **Delete resource group**. 
+1. Enter the resource group name to confirm you want to delete it, and select **Delete**.
