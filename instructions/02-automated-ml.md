@@ -2,7 +2,7 @@
 
 ## Overview
 
-Azure Machine Learning includes an *automated machine learning* capability that leverages the scalability of cloud compute to automatically try multiple pre-processing techniques and model-training algorithms in parallel to find the best performing supervised machine learning model for your data.
+Azure Machine Learning includes an *automated machine learning* capability that leverages the scalability of cloud compute to automatically try multiple pre-processing techniques and model-training algorithms in parallel to find the best-performing supervised machine learning model for your data.
 
 In this exercise, you'll use the visual interface for automated machine learning in Azure Machine Learning studio
 
@@ -10,9 +10,9 @@ In this exercise, you'll use the visual interface for automated machine learning
 
 ## Configure compute resources
 
-To use automated machine learning, you require compute on which to run the model training experiment.
+To use automated machine learning, you require to compute which to run the model training experiment.
 
-1. Sign into Azure Portal(https://portal.azure.com) with the login credentials provided in the environment details page, navigate to resource groups and open the resource group **dp-100-<inject key="DeploymentID" enableCopy="false"/>**
+1. Sign in to Azure Portal(https://portal.azure.com) with the login credentials provided on the environment details page, navigate to resource groups, and open the resource group **dp-100-<inject key="DeploymentID" enableCopy="false"/>**
 
     
 
@@ -43,9 +43,9 @@ To use automated machine learning, you require compute on which to run the model
 
 Now that you have some compute resources that you can use to process data, you'll need a way to store and ingest the data to be processed.
 
-1. On the LabVM browser open new tab and browse https://aka.ms/diabetes-data. Click **ctrl+s** to save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
+1. On the LabVM browser open a new tab and browse https://aka.ms/diabetes-data. Click **ctrl+s** to save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
 
-2. In Azure Machine Learning studio, view the **Data** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
+2. In Azure Machine Learning Studio, view the **Data** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
 
 3. Create a new dataset from local files, using the following settings:
 
@@ -93,7 +93,7 @@ Now that you have some compute resources that you can use to process data, you'l
     
     > **Note**: You can optionally generate a *profile* of the dataset to see more statistical details.
 
-## Run an automated machine learning experiment
+## Run an automated machine-learning experiment
 
 In Azure Machine Learning, operations that you run are called *experiments*. Follow the steps below to run an experiment that uses automated machine learning to train a classification model that predicts diabetes diagnoses.
 
@@ -151,14 +151,14 @@ In Azure Machine Learning, operations that you run are called *experiments*. Fol
     
 ## Review the best model
 
-After the experiment has finished; you can review the best performing model that was generated (note that in this case, we used exit criteria to stop the experiment - so the "best" model found by the experiment may not be the best possible model, just the best one found within the time and metric constraints allowed for this exercise!).
+After the experiment has finished; you can review the best-performing model that was generated (note that in this case, we used exit criteria to stop the experiment - so the "best" model found by the experiment may not be the best possible model, just the best one found within the time and metric constraints allowed for this exercise!).
 
 1. On the **Overview** tab of the automated machine learning run, note the best model summary.
 
 2. Select the **Algorithm name** for the **best model** to view the child-run that produced it.
 
- - The best model is identified based on the evaluation metric you specified (*AUC_Weighted*). To calculate this metric, the training process used some of the data to train the model, and applied a technique called *cross-validation* to iteratively test the trained model with data it wasn't trained with and compare the predicted value with the actual known value. 
- - From these comparisons, a *confusion matrix* of true-positives, false-positives,true-negatives, and false-negatives is tabulated and additional classification metrics calculated - including a Receiving Operator Curve (ROC) chart that compares the True-Positive rate and False-Positive rate. The area under this curve (AUC) us a common metric used to evaluate classification performance.
+ - The best model is identified based on the evaluation metric you specified (*AUC_Weighted*). To calculate this metric, the training process used some of the data to train the model and applied a technique called *cross-validation* to iteratively test the trained model with data it wasn't trained with and compare the predicted value with the actual known value. 
+ - From these comparisons, a *confusion matrix* of true-positives, false-positives,true-negatives, and false-negatives is tabulated, and additional classification metrics are calculated - including a Receiving Operator Curve (ROC) chart that compares the True-Positive rate and False-Positive rate. The area under this curve (AUC) is a common metric used to evaluate classification performance.
 
     ![](images/step22.png)
 
@@ -173,10 +173,10 @@ After the experiment has finished; you can review the best performing model that
 
 ## Deploy a predictive service
 
-After you've used automated machine learning to train some models, you can deploy the best performing model as a service for client applications to use.
+After you've used automated machine learning to train some models, you can deploy the best-performing model as a service for client applications to use.
 
- - In Azure Machine Learning, you can deploy a service as an Azure Container Instances (ACI) or to an Azure Kubernetes Service (AKS) cluster. For production scenarios, an AKS deployment is recommended, for which you must create an *inference cluster* compute target. 
- - In this exercise, you'll use an ACI service, which is a suitable deployment target for testing, and does not require you to create an inference cluster.
+ - In Azure Machine Learning, you can deploy a service as an Azure Container Instance (ACI) or to an Azure Kubernetes Service (AKS) cluster. For production scenarios, an AKS deployment is recommended, for which you must create an *inference cluster* compute target. 
+ - In this exercise, you'll use an ACI service, which is a suitable deployment target for testing and does not require you to create an inference cluster.
 
 1. Select the **Details** tab for the run that produced the best model.
 
@@ -206,11 +206,11 @@ After you've used automated machine learning to train some models, you can deplo
 
 Now that you've deployed a service, you can test it using some simple code.
 
-1. With the **Consume** page for the **auto-predict-diabetes** service page opened in your browser, Duplicate the page in the New tab of Azure Machine Learning studio. Then in the new tab , view the **Notebooks** page.
+1. With the **Consume** page for the **auto-predict-diabetes** service page opened in your browser, Duplicate the page in the New tab of Azure Machine Learning studio. Then in the new tab, view the **Notebooks** page.
 
-2. In the **Notebooks** page, under **My files**, browse to the **Users/mslearn-dp100** folder where you cloned the notebook repository, and open the **Get AutoML Prediction** notebook.
+2. In the **Notebooks** page, under **My files**, browse to the **Users/mslearn-dp100** folder where you cloned the notebook repository and open the **Get AutoML Prediction** notebook.
 
-3. When the notebook has opened, ensure that the compute instance **Notebook-{DeploymentID}** is selected in the **Compute** box, and that it has a status of **Running**.
+3. When the notebook has opened, ensure that the compute instance **Notebook-{DeploymentID}** is selected in the **Compute** box and that it has a status of **Running**.
 
 4. In the notebook, replace the **ENDPOINT** and **PRIMARY_KEY** placeholders with the values for your service, which you can copy from the **Consume** tab on the page for your endpoint.
 
