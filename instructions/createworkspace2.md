@@ -1,9 +1,10 @@
 
+
 # Clone the repo to perform the lab
 
-1. **It is necessary that after completing this exercise , then proceed to the next one**.
+1. **It is necessary that after completing this exercise, then proceed to the next one**.
 
-1. After signed into azure portal using the credentials provided, Search for **Resource Groups** in the search bar.
+1. After signing into the azure portal using the credentials provided, Search for **Resource Groups** in the search bar.
 
 1. Then you will find the **dp-100-<inject key="DeploymentID" enableCopy="false"/>**, where xxxxxx is the deployment id of the lab. Click on **dp-100-<inject key="DeploymentID" enableCopy="false"/>** to find the resources for the lab.
 
@@ -15,7 +16,7 @@
 
     ![](images/img2.png)
     
-1. Click on **Launch Studio** to open the machine learning studio in new tab. If any pop-up appears close them.
+1. Click on **Launch Studio** to open the machine learning studio in a new tab. If any pop-up appears close them.
 
     ![](images/img3.png)
     
@@ -31,7 +32,7 @@
 
     ![](images/img6.png)
     
-1. The Jupyter will open in a new window, Click on **New** then select **Terminal** to open new terminal.
+1. The Jupyter will open in a new window, Click on **New** then select **Terminal** to open a new terminal.
 
     ![](images/img7.png)
     
@@ -44,7 +45,7 @@
     git clone https://github.com/MicrosoftLearning/mslearn-dp100
     ```
 
-1. After running the commands you will get the output as shown in below image. Then close the terminal window browser tab and go back to the jupyter window.
+1. After running the commands you will get the output as shown below image. Then close the terminal window browser tab and go back to the jupyter window.
 
     ![](images/img9.png)
 
