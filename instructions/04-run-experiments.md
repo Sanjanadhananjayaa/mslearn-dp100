@@ -2,7 +2,7 @@
 
 ## Overview
 
-Experiments are at the core of a data scientist's work. In Azure Machine Learning, an *experiment* is used to run a script or a pipeline, and usually generates outputs and records metrics. In this exercise, you will use the Azure Machine Learning SDK to run Python code as experiments.
+Experiments are at the core of a data scientist's work. In Azure Machine Learning, an *experiment* is used to run a script or a pipeline, and usually generates outputs and records metrics. In this exercise, you will use the Azure Machine Learning SDK to run Python code as an experiment.
 
 ## Open Jupyter
 
@@ -10,7 +10,7 @@ While you can use the **Notebooks** page in Azure Machine Learning studio to run
 
 > **Tip**: Jupyter Notebook is a commonly used open-source tool for data science. You can refer to the [documentation](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html) if you are unfamiliar with it.
 
-1. In the LabVM browser open Azure Machine Learning Studio(https://ml.azure.com). If prompted, login using the credentials provided in the **Environment Details** tab. View the **Compute** page for your workspace.
+1. In the LabVM browser open Azure Machine Learning Studio(https://ml.azure.com). If prompted, log in using the credentials provided in the **Environment Details** tab. View the **Compute** page for your workspace.
 
     **Note**: If you get **Welcome to the studio** page when you login, Select **Subscription** and **Machine Learning workspace** available in the drop down then click on **Get Started**.
 
@@ -57,11 +57,10 @@ Experiments in Azure Machine Learning need to be initiated from some sort of *co
 
 1. In the Jupyter home page, browse to the **Users/mslearn-dp100** folder where you cloned the notebook repository.
 
-2. Click on **Run Experiments** (04 - Run Experiments.ipynb) notebook to open in the new tab.
+2. Click on **Run Experiments** (04 - Run Experiments.ipynb) notebook to open the new tab.
 
     ![](images/runexp.png)
 
 3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu
 
 4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
-
