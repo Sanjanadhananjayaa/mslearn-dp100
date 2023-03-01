@@ -12,7 +12,7 @@ While you can use the **Notebooks** page in Azure Machine Learning studio to run
 
 > **Tip**: Jupyter Notebook is a commonly used open-source tool for data science. You can refer to the [documentation](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html) if you are unfamiliar with it.
 
-1. In the LabVM browser open Azure Machine Learning Studio(https://ml.azure.com). If prompted, login using the credentials provided in the **Environment Details** tab. View the **Compute** page for your workspace.
+1. In the LabVM browser open Azure Machine Learning Studio(https://ml.azure.com). If prompted, log in using the credentials provided in the **Environment Details** tab. View the **Compute** page for your workspace.
 
     **Note**: If you get **Welcome to the studio** page when you login, Select **Subscription** and **Machine Learning workspace** available in the drop down then click on **Get Started**.
 
@@ -22,17 +22,16 @@ While you can use the **Notebooks** page in Azure Machine Learning studio to run
 
     ![](images/jupyter.png)
 
-## Work with datastores and datasets
+## Work with data stores and datasets
 
 In this exercise, the code to work with data is provided in a notebook.
 
 1. In the Jupyter home page, browse to the **Users/mslearn-dp100** or **Users/*{Username}*/mslearn-dp100** folder where you cloned the notebook repository. 
 
-2. Click on **Work with Data** (06 - Work with Data.ipynb) notebook  to open in the new tab.
+2. Click on **Work with Data** (06 - Work with Data.ipynb) notebook to open the new tab.
 
     ![](images/data.png)
 
 3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu.
 
 4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
-
