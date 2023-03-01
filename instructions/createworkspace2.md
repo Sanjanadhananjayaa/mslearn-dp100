@@ -5,13 +5,13 @@
 
 1. After signed into azure portal using the credentials provided, Search for **Resource Groups** in the search bar.
 
-1. Then you will find the **dp-100-xxxxxx**, where xxxxxx is the deployment id of the lab. Click on **dp-100-xxxxxx** to find the resources for the lab.
+1. Then you will find the **dp-100-<inject key="DeploymentID" enableCopy="false"/>**, where xxxxxx is the deployment id of the lab. Click on **dp-100-<inject key="DeploymentID" enableCopy="false"/>** to find the resources for the lab.
 
     ![](images/img1.png)
 
     **Note**: Deployment ID can be obtained from the Lab Environment output page.
 
-1. Find the machine learning workspace named **quick-start-ws-xxxxxx**, Click to open it.
+1. Find the machine learning workspace named **quick-start-ws-<inject key="DeploymentID" enableCopy="false"/>**, Click to open it.
 
     ![](images/img2.png)
     
@@ -23,7 +23,7 @@
 
     ![](images/img4.png)
     
-1. Under **compute instances** you can find **notebookxxxxxx**. Click on **Jupyter** (make sure to click on **Jupyter** not **JupyterLab**) to run the notebook to perform the lab. A lot of data science and machine learning experimentation is performed by running code in *notebooks*. Your compute instance includes fully featured Python notebook environments (*Jupyter* and *JuypyterLab*) that you can use for extensive work.
+1. Under **compute instances** you can find **notebook<inject key="DeploymentID" enableCopy="false"/>**. Click on **Jupyter** (make sure to click on **Jupyter** not **JupyterLab**) to run the notebook to perform the lab. A lot of data science and machine learning experimentation is performed by running code in *notebooks*. Your compute instance includes fully featured Python notebook environments (*Jupyter* and *JuypyterLab*) that you can use for extensive work.
 
     ![](images/img5.png)
     
