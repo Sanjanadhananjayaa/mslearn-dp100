@@ -8,9 +8,9 @@ Azure Machine Learning *designer* provides a drag & drop environment in which yo
 
 Now that you have some compute resources that you can use to process data, you'll need a way to store and ingest the data to be processed.
 
-1. On the LabVM browser open new tab and browse https://aka.ms/diabetes-data. Give **Ctri+S** to save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
+1. On the LabVM browser open a new tab and browse https://aka.ms/diabetes-data. Give **Ctri+S** to save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
 
-2. In Azure Machine Learning studio, view the **Datasets** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
+2. In Azure Machine Learning Studio, view the **Datasets** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
 
 3. Create a new dataset from local files, using the following settings:
 
@@ -53,9 +53,9 @@ Now that you have some compute resources that you can use to process data, you'l
 
 ## Create a designer pipeline
 
-To get started with designer, first you must create a pipeline and add the dataset you want to work with.
+To get started with a designer, first, you must create a pipeline and add the dataset you want to work with.
 
-1. In Azure Machine Learning studio, view the **Designer** page and create a new pipeline.
+1. In Azure Machine Learning Studio, view the **Designer** page and create a new pipeline.
 
     ![new-pipeline](images/newpipeline.png)
 
@@ -69,7 +69,7 @@ To get started with designer, first you must create a pipeline and add the datas
     
     ![new-pipeline](images/selecttarget.png)
 
-4. On the left side of the designer, expand the **Datasets** section, and drag the **diabetes dataset** dataset onto the canvas.
+4. On the left side of the designer, expand the **Datasets** section and drag the **diabetes dataset** dataset onto the canvas.
 
     ![new-pipeline](images/dd.png)
 
@@ -89,7 +89,7 @@ Before you can train a model, you typically need to apply some preprocessing tra
 
     ![new-pipeline](images/connection.png)
 
-3. Select the **Normalize Data** module and view its settings, noting that it requires you to specify the transformation method and the columns to be transformed. Then, leaving the transformation as **ZScore**, edit the columns to includes the following column names:
+3. Select the **Normalize Data** module and view its settings, noting that it requires you to specify the transformation method and the columns to be transformed. Then, leaving the transformation as **ZScore**, edit the columns to include the following column names:
     * PlasmaGlucose
     * DiastolicBloodPressure
     * TricepsThickness
@@ -101,7 +101,7 @@ Before you can train a model, you typically need to apply some preprocessing tra
     
     ![new-pipeline](images/select.png)    
 
-    **Note**: We're normalizing the numeric columns put them on the same scale, and avoid columns with large values dominating model training. You'd normally apply a whole bunch of pre-processing transformations like this to prepare your data for training, but we'll keep things simple in this exercise.
+    **Note**: We're normalizing the numeric columns putting them on the same scale, and avoiding columns with large values dominating model training. You'd normally apply a whole bunch of pre-processing transformations like this to prepare your data for training, but we'll keep things simple in this exercise.
 
 4. Now we're ready to split the data into separate datasets for training and validation. In the pane on the left, in the **Data Transformations** section, drag a **Split Data** module onto the canvas under the **Normalize Data** module. Then connect the *Transformed Dataset* (left) output of the **Normalize Data** module to the input of the **Split Data** module.
 
@@ -123,7 +123,7 @@ With the data prepared and split into training and validation datasets, you're r
 
     ![new-pipeline](images/tm.png)
 
-3. The **Diabetic** label the model will predict is a binary column (1 for patients who have diabetes, 0 for patients who don't), so we need to train the model using a *classification* algorithm. Expand the **Machine Learning Algorithms** section, and under **Classification**, drag a **Two-Class Logistic Regression** module to the canvas, to the left of the **Split Data** module and above the **Train Model** module. Then connect its output to the **Untrained model** (left) input of the **Train Model** module.
+3. The **Diabetic** label the model will predict is a binary column (1 for patients who have diabetes, 0 for patients who don't), so we need to train the model using a *classification* algorithm. Expand the **Machine Learning Algorithms** section, and under **Classification**, drag a **Two-Class Logistic Regression** module to the canvas, to the left of the **Split Data** module, and above the **Train Model** module. Then connect its output to the **Untrained model** (left) input of the **Train Model** module.
 
     ![new-pipeline](images/tcl.png)
 
@@ -141,13 +141,13 @@ With the data flow steps defined, you're now ready to run the training pipeline 
 
     ![Visual Training Pipeline](images/visual-training.jpg)
 
-2. At the top right, click **Submit**. Then when prompted, create a new experiment named **mslearn-designer-train-diabetes**, and run it.  This will initialize the compute cluster and then run the pipeline, which may take 10 minutes or longer. You  can see the status of the pipeline run above the top right of the design canvas.
+2. At the top right, click **Submit**. Then when prompted, create a new experiment named **mslearn-designer-train-diabetes**, and run it.  This will initialize the compute cluster and then run the pipeline, which may take 10 minutes or longer. You can see the status of the pipeline run above the top right of the design canvas.
 
     ![new-pipeline](images/mslearn.png)
 
     **Tip**: While it's running, you can view the pipeline and experiment that have been created in the **Pipelines** and **Experiments** pages. Switch back to the **Visual Diabetes Training** pipeline on the **Designer** page when you're done.
 
-3. After the **Normalize Data** module has completed, select it, and in the **Settings** pane, on the **Outputs + logs** tab, under **Data outputs** in the **Transformed dataset** section, click the **preview Data** icon, and note that you can view statistics and distribution visualizations for the transformed columns.
+3. After the **Normalize Data** module has been completed, select it, and in the **Settings** pane, on the **Outputs + logs** tab, under **Data outputs** in the **Transformed dataset** section, click the **preview Data** icon, and note that you can view statistics and distribution visualizations for the transformed columns.
 
     ![new-pipeline](images/visualize.png)
 
@@ -222,9 +222,9 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 Now you have an inference pipeline for real-time inferencing, which you can deploy as a web service for client applications to use.
 
-> **Note**: In this exercise, you'll deploy the web service to to an Azure Container Instance (ACI). This type of compute is created dynamically, and is useful for development and testing. For production, you should create an *inference cluster*, which provide an Azure Kubernetes Service (AKS) cluster that provides better scalability and security.
+> **Note**: In this exercise, you'll deploy the web service to an Azure Container Instance (ACI). This type of compute is created dynamically and is useful for development and testing. For production, you should create an *inference cluster*, which provides an Azure Kubernetes Service (AKS) cluster that provides better scalability and security.
 
-1. If the **Predict Diabetes** inference pipeline has not yet finished running, await it's completion. Then visualize the **Result dataset** output of the **Execute Python Script** module to see the predicted labels and probabilities for the three patient observations in the input data.
+1. If the **Predict Diabetes** inference pipeline has not yet finished running, await its completion. Then visualize the **Result dataset** output of the **Execute Python Script** module to see the predicted labels and probabilities for the three patient observations in the input data.
 
 2. At the top right, click **Deploy**, and deploy a new real-time endpoint, using the following settings:
     -  **Name**: designer-predict-diabetes
@@ -251,11 +251,11 @@ Now you can test your deployed service from a client application - in this case,
 
 3. With the **Consume** page for the **designer-predict-diabetes** service page open in your browser, open a new browser tab and open a second instance of Azure Machine Learning studio. Then in the new tab, view the **Notebooks** page.
 
-4. In the **Notebooks** page, under **My files**, browse to the **Users/mslearn-dp100** folder where you cloned the notebook repository, and open the **Get Designer Prediction** notebook.
+4. In the **Notebooks** page, under **My files**, browse to the **Users/mslearn-dp100** folder where you cloned the notebook repository and open the **Get Designer Prediction** notebook.
 
     ![new-pipeline](images/startnotebook.png)
 
-5. When the notebook has opened, ensure that the compute instance **Notebook-{DeploymentID}** is selected in the **Compute** box, and that it has a status of **Running**.
+5. When the notebook has opened, ensure that the compute instance **Notebook-{DeploymentID}** is selected in the **Compute** box and that it has a status of **Running**.
 
 6. In the notebook, replace the **ENDPOINT** and **PRIMARY_KEY** placeholders with the values for your service, which you can copy from the **Consume** tab on the page for your endpoint.
 
