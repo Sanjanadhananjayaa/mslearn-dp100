@@ -6,11 +6,9 @@
 
 1. After signing into the azure portal using the credentials provided, Search for **Resource Groups** in the search bar.
 
-1. Then you will find the **dp-100-<inject key="DeploymentID" enableCopy="false"/>**, where xxxxxx is the deployment id of the lab. Click on **dp-100-<inject key="DeploymentID" enableCopy="false"/>** to find the resources for the lab.
+1. Then you will find the **dp-100-<inject key="DeploymentID" enableCopy="false"/>**. Click on **dp-100-<inject key="DeploymentID" enableCopy="false"/>** to find the resources for the lab.
 
     ![](images/img1.png)
-
-    **Note**: Deployment ID can be obtained from the Lab Environment output page.
 
 1. Find the machine learning workspace named **quick-start-ws-<inject key="DeploymentID" enableCopy="false"/>**, Click to open it.
 
