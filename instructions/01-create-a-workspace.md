@@ -22,7 +22,6 @@ As its name suggests, a workspace is a centralized place to manage all of the Az
     - **Application insights**: *Note the default new application insights resource that will be created for your workspace*
     - **Container registry**: None (*one will be created automatically the first time you deploy a model to a container*)
 
-> **Note:** You can find the DeploymentID under the lab Environment Details tab. When you create an Azure Machine Learning workspace, you can use some advanced options to restrict access through a private endpoint and specify custom keys for data encryption. We won't use these options in this exercise - but you should be aware of them!
 
   ![](images/mlcreate.png)
 
