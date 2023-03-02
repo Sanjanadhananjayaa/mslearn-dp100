@@ -47,30 +47,32 @@ Now that you have some compute resources that you can use to process data, you'l
 
 2. In Azure Machine Learning Studio, view the **Data** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
 
-3. Create a new dataset from local files, using the following settings:
+3. Create a new dataset using the following settings:
 
     ![](images/create.png)
     
-    * **Basic Info**:
+    * **On data type pane, basic Info for create data asset then click on next.**:
         * **Name**: diabetesdataset
         * **Dataset type**: Tabular
         * **Description**: Diabetes data
         
     ![](images/datasetss2.png)
     
+    * **On data source pane Choose from local files option then click on next.**:
     ![](images/localfiles.png)
     
-    * **Datastore and file selection**:
-        * **Select or create a datastore**: Currently selected datastore
-        * **Select files for your dataset**: click on upload and Browse to the **diabetes.csv** file you downloaded.
+    * **On storage type pane leave the default then click on next**:
         * **Upload path**: *Leave the default selection*
         
-        
-    ![](images/next.png)  
+        ![](images/next.png)
+    
+    * **File or folder selection pane upload your file, then click on next.**:
+        * **Select or create a datastore**: Currently selected datastore
+        * **Select files for your dataset**: click on upload and Browse to the **diabetes.csv** file you downloaded.
     
     ![](images/upload&next.png)
     
-    * **Settings and preview**:
+    * **in Settings pane, info for related fields then click on next**:
         * **File format**: Delimited
         * **Delimiter**: Comma
         * **Encoding**: UTF-8
