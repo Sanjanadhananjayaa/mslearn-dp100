@@ -10,18 +10,18 @@ Now that you have some compute resources that you can use to process data, you'l
 
 1. On the LabVM browser open a new tab and browse https://aka.ms/diabetes-data. Give **Ctri+S** to save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
 
-2. In Azure Machine Learning Studio, view the **Datasets** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
+2. In Azure Machine Learning Studio, in **Assets** pane select **Data** option on the left panel. Data assets represent specific data files or tables that you plan to work with in Azure ML.
 
 3. Create a new dataset from local files, using the following settings:
 
-    ![](images/DP-100.png)
+    ![](images/dp100.png)
     
     * **Basic Info**:
-        * **Name**: diabetes dataset
-        * **Dataset type**: Tabular
+        * **Name**: diabetesdataset
+        * **type**: Tabular
         * **Description**: Diabetes data
         
-    ![](images/datasets2.png)
+    ![](images/data.png)
     
     * **Datastore and file selection**:
         * **Select or create a datastore**: Currently selected datastore
