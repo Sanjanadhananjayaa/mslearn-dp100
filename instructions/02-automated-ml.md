@@ -49,21 +49,22 @@ Now that you have some compute resources that you can use to process data, you'l
 
 3. Create a new dataset using the following settings:
 
-    ![](images/create.png)
+    ![](images/dp-100create.png)
     
     * **On data type pane, basic Info for create data asset then click on next.**:
         * **Name**: diabetesdataset
         * **Dataset type**: Tabular
         * **Description**: Diabetes data
         
-    ![](images/datasetss2.png)
+    ![](images/dp-1002.png)
     
     * **On data source pane Choose from local files option then click on next.**:
-    ![](images/localfiles.png)
+    
+    ![](images/dp100-3localfiles.png)
     
     * **On storage type pane leave the default then click on next**:
     
-      ![](images/next.png)
+    ![](images/dp100-4.png)
         
         
     * **File or folder selection pane upload your file, then click on next.**:
@@ -71,16 +72,16 @@ Now that you have some compute resources that you can use to process data, you'l
         * **Select or create a datastore**: Currently selected datastore
         * **Select files for your dataset**: click on upload and Browse to the **diabetes.csv** file you downloaded.
     
-    ![](images/upload&next.png)
+    ![](images/dp100-5.png)
     
-    * **in Settings pane, info for related fields then click on next**:
+    * **In Settings pane, info for related fields then click on next**:
         * **File format**: Delimited
         * **Delimiter**: Comma
         * **Encoding**: UTF-8
         * **Column headers**: only first file has headers
         * **Skip rows**: None
         
-    ![](images/next1.png)
+    ![](images/dp-100-6.png)
     
     * **Schema**:
         * Include all columns other than **Path**
@@ -128,7 +129,7 @@ In Azure Machine Learning, operations that you run are called *experiments*. Fol
                 - **Training job time (hours)**: 0.5 - *this causes the experiment to end after a maximum of 30 minutes.*
                 - **Metric score threshold**: 0.90 - *this causes the experiment to end if a model achieves a weighted AUC metric of 90% or higher.*
 
-    ![](images/additional-setting.png)
+            ![](images/additional-setting.png)
 
       - Select **View featurization settings** to open **Featurization**:
             - **Enable featurization**: Selected - *this causes Azure Machine Learning to automatically preprocess the features before training.*
@@ -213,7 +214,7 @@ Now that you've deployed a service, you can test it using some simple code.
 
 2. In the **Notebooks** page, under **My files**, browse to the **Users/mslearn-dp100** folder where you cloned the notebook repository and open the **Get AutoML Prediction** notebook.
 
-3. When the notebook has opened, ensure that the compute instance **Notebook-{DeploymentID}** is selected in the **Compute** box and that it has a status of **Running**.
+3. When the notebook has opened, ensure that the compute instance **notebook<inject key="DeploymentID" enableCopy="false" />** is selected in the **Compute** box and that it has a status of **Running**.
 
 4. In the notebook, replace the **ENDPOINT** and **PRIMARY_KEY** placeholders with the values for your service, which you can copy from the **Consume** tab on the page for your endpoint.
 
