@@ -24,7 +24,7 @@ While you can use the **Notebooks** page in Azure Machine Learning studio to run
 
 In this exercise, the code to train models is provided in a notebook.
 
-1. In the Jupyter home page, browse to the **Users/mslearn-dp100** or **Users/mslearn-dp100** folder where you cloned the notebook repository. 
+1. In the Jupyter home page, browse to the **Users/mslearn-dp100** folder where you cloned the notebook repository. 
 
 2. Click on **Train Models** (05 - Train Models.ipynb) notebook to open the new tab.
 
