@@ -62,15 +62,15 @@ To get started with a designer, first, you must create a pipeline and add the da
 
     ![new-pipeline](images/settings.png)
 
-3. Note that you need to specify a compute target on which to run the pipeline. In the **Settings** pane, under **Select compute type** choose **compute cluster**, then under **Select Azure ML compute cluster** select the computer cluster that is created, click on **Save** and close this pane by selecting the close icon.
+3. Note that you need to specify a compute target on which to run the pipeline. In the **Settings** pane, under **Select compute type** choose **compute cluster**, then under **Select Azure ML compute cluster** select the computer cluster that is created, click on **Save** and close this pane by selecting the close icon under Settings.
 
     ![new-pipeline](images/compute.png)
     
-4. On the left side of the designer, expand the **Datasets** section and drag the **diabetes dataset** dataset onto the canvas.
+4. On the left side of the designer, Inside the **Data** section drag the **diabetesdataset** dataset onto the canvas.
 
-    ![new-pipeline](images/dd.png)
+    ![new-pipeline](images/data1.png)
 
-5. Select the **diabetes dataset** module on the canvas. Then right-click it, and on the **Preview data**.
+5. Select the **diabetesdataset** module on the canvas. Then right-click it, and on the **Preview data**.
 
 6. In the DatasetOutput pane, select the **Profile** tab.
 
@@ -82,11 +82,11 @@ Before you can train a model, you typically need to apply some preprocessing tra
 
 1. In the pane on the left, select the Component tab, which contains a wide range of components you can use to transform data before model training. You can search for components at the top of the pane.
 
-2. Drag a **Normalize Data** module to the canvas, below the **diabetes dataset** module. Then connect the output from the **diabetes dataset** module to the input of the **Normalize Data** module.
+2. Search and Drag a **Normalize Data** module to the canvas, below the **diabetesdataset** module. Then connect the output from the **diabetesdataset** module to the input of the **Normalize Data** module.
 
     ![new-pipeline](images/connection.png)
 
-3. Select the **Normalize Data** module and view its settings, noting that it requires you to specify the transformation method and the columns to be transformed. Then, leaving the transformation as **ZScore**, edit the columns to include the following column names:
+3. Double click on the **Normalize Data** module and view its settings, noting that it requires you to specify the transformation method and the columns to be transformed. Then, leaving the transformation as **ZScore**, edit the columns to include the following column names, click on **Save** and close:
     * PlasmaGlucose
     * DiastolicBloodPressure
     * TricepsThickness
@@ -100,9 +100,9 @@ Before you can train a model, you typically need to apply some preprocessing tra
 
     **Note**: We're normalizing the numeric columns putting them on the same scale, and avoiding columns with large values dominating model training. You'd normally apply a whole bunch of pre-processing transformations like this to prepare your data for training, but we'll keep things simple in this exercise.
 
-4. Now we're ready to split the data into separate datasets for training and validation. In the pane on the left, in the **Data Transformations** section, drag a **Split Data** module onto the canvas under the **Normalize Data** module. Then connect the *Transformed Dataset* (left) output of the **Normalize Data** module to the input of the **Split Data** module.
+4. Now we're ready to split the data into separate datasets for training and validation. In the pane on the left, in the **Components** section, search and drag a **Split Data** module onto the canvas under the **Normalize Data** module. Then connect the *Transformed Dataset* (left) output of the **Normalize Data** module to the input of the **Split Data** module.
 
-5. Select the **Split Data** module, and configure its settings as follows:
+5. Double click on the **Split Data** module, and configure its settings as follows, after configuring save and close this pane:
     * **Splitting mode** Split Rows
     * **Fraction of rows in the first output dataset**: 0.7
     * **Random seed**: 123
@@ -114,19 +114,19 @@ Before you can train a model, you typically need to apply some preprocessing tra
 
 With the data prepared and split into training and validation datasets, you're ready to configure the pipeline to train and evaluate a model.
 
-1. Expand the **Model Training** section in the pane on the left, and drag a **Train Model** module to the canvas, under the **Split Data** module. Then connect the *Result dataset1* (left) output of the **Split Data** module to the *Dataset* (right) input of the **Train Model** module.
+1. In the **Components** section in the pane on the left, search and drag a **Train Model** module to the canvas, under the **Split Data** module. Then connect the *Result dataset1* (left) output of the **Split Data** module to the *Dataset* (right) input of the **Train Model** module.
 
-2. The model we're training will predict the **Diabetic** value, so select the **Train Model** module and modify its settings to set the **Label column** to  **Diabetic** (matching the case and spelling exactly!)
+2. The model we're training will predict the **Diabetic** value, so double click on the **Train Model** module and modify its settings to set the **Label column** to  **Diabetic** (matching the case and spelling exactly!) click on **Save**, then again click on save and close the pane.
 
     ![new-pipeline](images/tm.png)
 
-3. The **Diabetic** label the model will predict is a binary column (1 for patients who have diabetes, 0 for patients who don't), so we need to train the model using a *classification* algorithm. Expand the **Machine Learning Algorithms** section, and under **Classification**, drag a **Two-Class Logistic Regression** module to the canvas, to the left of the **Split Data** module, and above the **Train Model** module. Then connect its output to the **Untrained model** (left) input of the **Train Model** module.
+3. The **Diabetic** label the model will predict is a binary column (1 for patients who have diabetes, 0 for patients who don't), so we need to train the model using a *classification* algorithm. In the **Components** section, Search and drag a **Two-Class Logistic Regression** module to the canvas, to the left of the **Split Data** module, and above the **Train Model** module. Then connect its output to the **Untrained model** (left) input of the **Train Model** module.
 
     ![new-pipeline](images/tcl.png)
 
-4. To test the trained model, we need to use it to score the validation dataset we held back when we split the original data. Expand the **Model Scoring & Evaluation** section and drag a **Score Model** module to the canvas, below the **Train Model** module. Then connect the output of the **Train Model** module to the **Trained model** (left) input of the **Score Model** module; and drag the **Results dataset2** (right) output of the **Split Data** module to the **Dataset** (right) input of the **Score Model** module.
+4. To test the trained model, we need to use it to score the validation dataset we held back when we split the original data. In **Components** section, Search and drag a **Score Model** module to the canvas, below the **Train Model** module. Then connect the output of the **Train Model** module to the **Trained model** (left) input of the **Score Model** module; and drag the **Results dataset2** (right) output of the **Split Data** module to the **Dataset** (right) input of the **Score Model** module.
 
-5. To evaluate how well the model performs, we need to look at some metrics generated by scoring the validation dataset. From the **Model Scoring & Evaluation** section, drag an **Evaluate Model** module to the canvas, under the **Score Model** module, and connect the output of the **Score Model** module to the **Score dataset** (left) input of the **Evaluate Model** module.
+5. To evaluate how well the model performs, we need to look at some metrics generated by scoring the validation dataset. In the **Components** section, Search and drag an **Evaluate Model** module to the canvas, under the **Score Model** module, and connect the output of the **Score Model** module to the **Score dataset** (left) input of the **Evaluate Model** module.
 
     ![new-pipeline](images/em.png)
 
@@ -142,15 +142,17 @@ With the data flow steps defined, you're now ready to run the training pipeline 
 
     ![new-pipeline](images/mslearn.png)
 
-    **Tip**: While it's running, you can view the pipeline and experiment that have been created in the **Pipelines** and **Experiments** pages. Switch back to the **Visual Diabetes Training** pipeline on the **Designer** page when you're done.
+    **Tip**: While it's running, you can view the pipeline and experiment that have been created in the **Pipelines** pages. Switch back to the **Visual Diabetes Training** pipeline on the **Designer** page when you're done.
+    
+    >Note: if the pipeline failed, perform the step-2 again.
 
-3. After the **Normalize Data** module has been completed, select it, and in the **Settings** pane, on the **Outputs + logs** tab, under **Data outputs** in the **Transformed dataset** section, click the **preview Data** icon, and note that you can view statistics and distribution visualizations for the transformed columns.
+3. After the **Normalize Data** module has been completed, Double click on it, on the **Outputs + logs** tab, under **Data outputs** in the **Transformed dataset** section, click the **preview Data** icon, and note that you can view statistics and distribution visualizations for the transformed columns.
 
-    ![new-pipeline](images/visualize.png)
+    ![new-pipeline](images/pd.png)
 
 4. Close the **Normalize Data** visualizations and wait for the rest of the modules to complete. Then preview the output of the **Evaluate Model** module to see the performance metrics for the model.
 
-    ![new-pipeline](images/emvisualize.png)
+    ![new-pipeline](images/em.png)
 
     **Note**: The performance of this model isn't all that great, partly because we performed only minimal feature engineering and pre-processing. You could try some different classification algorithms and compare the results (you can connect the outputs of the **Split Data** module to multiple **Train Model** and **Score Model** modules, and you can connect a second scored model to the **Evaluate Model** module to see a side-by-side comparison). The point of the exercise is simply to introduce you to the designer interface, not to train a perfect model!
 
