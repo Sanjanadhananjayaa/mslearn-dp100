@@ -10,46 +10,45 @@ Now that you have some compute resources that you can use to process data, you'l
 
 1. On the LabVM browser open a new tab and browse https://aka.ms/diabetes-data. Give **Ctri+S** to save this as a local file named **diabetes.csv** (it doesn't matter where you save it).
 
-2. In Azure Machine Learning Studio, view the **Datasets** page on the left panel. Datasets represent specific data files or tables that you plan to work with in Azure ML.
+2. In Azure Machine Learning Studio, in **Assets** pane select **Data** option on the left panel. Data assets represent specific data files or tables that you plan to work with in Azure ML.
 
 3. Create a new dataset from local files, using the following settings:
 
-    ![](images/DP-100.png)
+    ![](images/dp100.png)
     
     * **Basic Info**:
-        * **Name**: diabetes dataset
-        * **Dataset type**: Tabular
+        * **Name**: diabetesdataset
+        * **type**: Tabular
         * **Description**: Diabetes data
         
-    ![](images/datasets2.png)
+    * **On data source pane Choose from local files option then click on next.**:
+    ![](images/localfiles.png)
     
-    * **Datastore and file selection**:
-        * **Select or create a datastore**: Currently selected datastore
-        * **Select files for your dataset**: click **upload** and Browse to the **diabetes.csv** file you downloaded.
+    * **On storage type pane leave the default then click on next**:
         * **Upload path**: *Leave the default selection*
-        * **Skip data validation**: Not selected
+
+    * **File or folder selection pane upload your file, then click on next.**:
+        * **Select or create a datastore**: Currently selected datastore
+        * **Select files for your dataset**: click on upload and Browse to the **diabetes.csv** file you downloaded.
         
-    ![](images/19.png) 
+        ![](images/next.png)
     
-    ![](images/20.png) 
+        ![](images/upload&next.png)
     
-    
-    * **Settings and preview**:
+    * **in Settings pane, info for related fields then click on next**:
         * **File format**: Delimited
         * **Delimiter**: Comma
         * **Encoding**: UTF-8
         * **Column headers**: only first file has headers
         * **Skip rows**: None
         
-    ![](images/21.png)
+    ![](images/next1.png)
     
     * **Schema**:
         * Include all columns other than **Path**
         * Review the automatically detected types
     * **Confirm details**:
         * Do not profile the dataset after creation
-        
-    ![](images/datasets4.png)
 
 ## Create a designer pipeline
 
@@ -57,23 +56,21 @@ To get started with a designer, first, you must create a pipeline and add the da
 
 1. In Azure Machine Learning Studio, view the **Designer** page and create a new pipeline.
 
-    ![new-pipeline](images/newpipeline.png)
+    ![new-pipeline](images/designer.png)
 
-2. In the **Settings** pane, change the default pipeline name (**Pipeline-Created-on-*date***) to **Visual Diabetes Training** (if the **Settings** pane is not visible, click the **&#9881;** icon next to the pipeline name at the top).
+2. In the **&#9881; Settings** pane, change the default pipeline name (**Pipeline-Created-on-*date***) to **Visual Diabetes Training**.
 
-    ![new-pipeline](images/namechange.png)
+    ![new-pipeline](images/settings.png)
 
-3. Note that you need to specify a compute target on which to run the pipeline. In the **Settings** pane, click **Select compute target** and select your compute cluster.
+3. Note that you need to specify a compute target on which to run the pipeline. In the **Settings** pane, under **Select compute type** choose **compute cluster**, then under **Select Azure ML compute cluster** select the computer cluster that is created, click on **Save** and close this pane by selecting the close icon under Settings.
 
-    ![new-pipeline](images/computetarget.png)
+    ![new-pipeline](images/compute.png)
     
-    ![new-pipeline](images/selecttarget.png)
+4. On the left side of the designer, Inside the **Data** section drag the **diabetesdataset** dataset onto the canvas.
 
-4. On the left side of the designer, expand the **Datasets** section and drag the **diabetes dataset** dataset onto the canvas.
+    ![new-pipeline](images/data1.png)
 
-    ![new-pipeline](images/dd.png)
-
-5. Select the **diabetes dataset** module on the canvas. Then right-click it, and on the **Preview data**.
+5. Select the **diabetesdataset** module on the canvas. Then right-click it, and on the **Preview data**.
 
 6. In the DatasetOutput pane, select the **Profile** tab.
 
@@ -85,11 +82,11 @@ Before you can train a model, you typically need to apply some preprocessing tra
 
 1. In the pane on the left, select the Component tab, which contains a wide range of components you can use to transform data before model training. You can search for components at the top of the pane.
 
-2. Drag a **Normalize Data** module to the canvas, below the **diabetes dataset** module. Then connect the output from the **diabetes dataset** module to the input of the **Normalize Data** module.
+2. Search and Drag a **Normalize Data** module to the canvas, below the **diabetesdataset** module. Then connect the output from the **diabetesdataset** module to the input of the **Normalize Data** module.
 
     ![new-pipeline](images/connection.png)
 
-3. Select the **Normalize Data** module and view its settings, noting that it requires you to specify the transformation method and the columns to be transformed. Then, leaving the transformation as **ZScore**, edit the columns to include the following column names:
+3. Double click on the **Normalize Data** module and view its settings, noting that it requires you to specify the transformation method and the columns to be transformed. Then, leaving the transformation as **ZScore**, edit the columns to include the following column names, click on **Save** and close:
     * PlasmaGlucose
     * DiastolicBloodPressure
     * TricepsThickness
@@ -103,9 +100,9 @@ Before you can train a model, you typically need to apply some preprocessing tra
 
     **Note**: We're normalizing the numeric columns putting them on the same scale, and avoiding columns with large values dominating model training. You'd normally apply a whole bunch of pre-processing transformations like this to prepare your data for training, but we'll keep things simple in this exercise.
 
-4. Now we're ready to split the data into separate datasets for training and validation. In the pane on the left, in the **Data Transformations** section, drag a **Split Data** module onto the canvas under the **Normalize Data** module. Then connect the *Transformed Dataset* (left) output of the **Normalize Data** module to the input of the **Split Data** module.
+4. Now we're ready to split the data into separate datasets for training and validation. In the pane on the left, in the **Components** section, search and drag a **Split Data** module onto the canvas under the **Normalize Data** module. Then connect the *Transformed Dataset* (left) output of the **Normalize Data** module to the input of the **Split Data** module.
 
-5. Select the **Split Data** module, and configure its settings as follows:
+5. Double click on the **Split Data** module, and configure its settings as follows, after configuring save and close this pane:
     * **Splitting mode** Split Rows
     * **Fraction of rows in the first output dataset**: 0.7
     * **Random seed**: 123
@@ -117,21 +114,21 @@ Before you can train a model, you typically need to apply some preprocessing tra
 
 With the data prepared and split into training and validation datasets, you're ready to configure the pipeline to train and evaluate a model.
 
-1. Expand the **Model Training** section in the pane on the left, and drag a **Train Model** module to the canvas, under the **Split Data** module. Then connect the *Result dataset1* (left) output of the **Split Data** module to the *Dataset* (right) input of the **Train Model** module.
+1. In the **Components** section in the pane on the left, search and drag a **Train Model** module to the canvas, under the **Split Data** module. Then connect the *Result dataset1* (left) output of the **Split Data** module to the *Dataset* (right) input of the **Train Model** module.
 
-2. The model we're training will predict the **Diabetic** value, so select the **Train Model** module and modify its settings to set the **Label column** to  **Diabetic** (matching the case and spelling exactly!)
+2. The model we're training will predict the **Diabetic** value, so double click on the **Train Model** module and modify its settings to set the **Label column** to  **Diabetic** (matching the case and spelling exactly!) click on **Save**, then again click on save and close the pane.
 
     ![new-pipeline](images/tm.png)
 
-3. The **Diabetic** label the model will predict is a binary column (1 for patients who have diabetes, 0 for patients who don't), so we need to train the model using a *classification* algorithm. Expand the **Machine Learning Algorithms** section, and under **Classification**, drag a **Two-Class Logistic Regression** module to the canvas, to the left of the **Split Data** module, and above the **Train Model** module. Then connect its output to the **Untrained model** (left) input of the **Train Model** module.
+3. The **Diabetic** label the model will predict is a binary column (1 for patients who have diabetes, 0 for patients who don't), so we need to train the model using a *classification* algorithm. In the **Components** section, Search and drag a **Two-Class Logistic Regression** module to the canvas, to the left of the **Split Data** module, and above the **Train Model** module. Then connect its output to the **Untrained model** (left) input of the **Train Model** module.
 
     ![new-pipeline](images/tcl.png)
 
-4. To test the trained model, we need to use it to score the validation dataset we held back when we split the original data. Expand the **Model Scoring & Evaluation** section and drag a **Score Model** module to the canvas, below the **Train Model** module. Then connect the output of the **Train Model** module to the **Trained model** (left) input of the **Score Model** module; and drag the **Results dataset2** (right) output of the **Split Data** module to the **Dataset** (right) input of the **Score Model** module.
+4. To test the trained model, we need to use it to score the validation dataset we held back when we split the original data. In **Components** section, Search and drag a **Score Model** module to the canvas, below the **Train Model** module. Then connect the output of the **Train Model** module to the **Trained model** (left) input of the **Score Model** module; and drag the **Results dataset2** (right) output of the **Split Data** module to the **Dataset** (right) input of the **Score Model** module.
 
-5. To evaluate how well the model performs, we need to look at some metrics generated by scoring the validation dataset. From the **Model Scoring & Evaluation** section, drag an **Evaluate Model** module to the canvas, under the **Score Model** module, and connect the output of the **Score Model** module to the **Score dataset** (left) input of the **Evaluate Model** module.
+5. To evaluate how well the model performs, we need to look at some metrics generated by scoring the validation dataset. In the **Components** section, Search and drag an **Evaluate Model** module to the canvas, under the **Score Model** module, and connect the output of the **Score Model** module to the **Score dataset** (left) input of the **Evaluate Model** module.
 
-    ![new-pipeline](images/em.png)
+    ![new-pipeline](images/visual-training.jpg)
 
 ## Run the training pipeline
 
@@ -145,15 +142,17 @@ With the data flow steps defined, you're now ready to run the training pipeline 
 
     ![new-pipeline](images/mslearn.png)
 
-    **Tip**: While it's running, you can view the pipeline and experiment that have been created in the **Pipelines** and **Experiments** pages. Switch back to the **Visual Diabetes Training** pipeline on the **Designer** page when you're done.
+    **Tip**: While it's running, you can view the pipeline and experiment that have been created in the **Pipelines** pages. Switch back to the **Visual Diabetes Training** pipeline on the **Designer** page when you're done.
+    
+    >Note: if the pipeline failed, perform the step-2 again.
 
-3. After the **Normalize Data** module has been completed, select it, and in the **Settings** pane, on the **Outputs + logs** tab, under **Data outputs** in the **Transformed dataset** section, click the **preview Data** icon, and note that you can view statistics and distribution visualizations for the transformed columns.
+3. After the **Normalize Data** module has been completed, Double click on it, on the **Outputs + logs** tab, under **Data outputs** in the **Transformed dataset** section, click the **preview Data** icon, and note that you can view statistics and distribution visualizations for the transformed columns.
 
-    ![new-pipeline](images/visualize.png)
+    ![new-pipeline](images/pd.png)
 
 4. Close the **Normalize Data** visualizations and wait for the rest of the modules to complete. Then preview the output of the **Evaluate Model** module to see the performance metrics for the model.
 
-    ![new-pipeline](images/emvisualize.png)
+    ![new-pipeline](images/em.png)
 
     **Note**: The performance of this model isn't all that great, partly because we performed only minimal feature engineering and pre-processing. You could try some different classification algorithms and compare the results (you can connect the outputs of the **Split Data** module to multiple **Train Model** and **Score Model** modules, and you can connect a second scored model to the **Evaluate Model** module to see a side-by-side comparison). The point of the exercise is simply to introduce you to the designer interface, not to train a perfect model!
 
@@ -169,13 +168,13 @@ Now that you have used a *training pipeline* to train a model, you can create an
 
     ![new-pipeline](images/rename.png)
 
-3. Note that the inference pipeline assumes that new data will match the schema of the original training data, so the **diabetes dataset** dataset from the training pipeline is included. However, this input data includes the **Diabetic** label that the model predicts, which is unintuitive to include in new patient data for which a diabetes prediction has not yet been made.
+3. Note that the inference pipeline assumes that new data will match the schema of the original training data, so the **diabetesdataset** dataset from the training pipeline is included. However, this input data includes the **Diabetic** label that the model predicts, which is unintuitive to include in new patient data for which a diabetes prediction has not yet been made.
 
-4. Delete the **diabetes dataset** dataset from the inference pipeline and replace it with an **Enter Data Manually** module from the **Data Input and Output** section; connecting it to the same **dataset** input of the **Apply Transformation** module as the **Web Service Input**. 
+4. Delete the **diabetesdataset** dataset from the inference pipeline and replace it with an **Enter Data Manually** module from the **Components** section; connecting it to the same **dataset** input of the **Apply Transformation** module, in the **Components** section search and drag **Web Service Input** and connect it with the same **dataset** input of the **Apply Transformation** module. 
 
     ![new-pipeline](images/enterdata.png)
 
-5. Then modify the settings of the **Enter Data Manually** module to use the following CSV input, which includes feature values without labels for three new patient observations:
+5. Then modify the settings of the **Enter Data Manually** module by double clicking it to use the following CSV input, which includes feature values without labels for three new patient observations, select save and close:
 
 ```CSV
 PatientID,Pregnancies,PlasmaGlucose,DiastolicBloodPressure,TricepsThickness,SerumInsulin,BMI,DiabetesPedigree,Age
@@ -188,11 +187,11 @@ PatientID,Pregnancies,PlasmaGlucose,DiastolicBloodPressure,TricepsThickness,Seru
 
 6. The inference pipeline includes the **Evaluate Model** module, which is not useful when predicting from new data, so delete this module.
 
-7. The output from the **Score Model** module includes all of the input features as well as the predicted label and probability score. To limit the output to only the prediction and probability, delete the connection between the **Score Model** module and the **Web Service Output**, add an **Execute Python Script** module from the **Python Language** section, connect the output from the **Score Model** module to the **Dataset1** (left-most) input of the **Execute Python Script**, and connect the output of the **Execute Python Script** module to the **Web Service Output**. 
+7. The output from the **Score Model** module includes all of the input features as well as the predicted label and probability score. To limit the output to only the prediction and probability, delete the connection between the **Score Model** module and the **Web Service Output**, add an **Execute Python Script** module from the **Components** section, connect the output from the **Score Model** module to the **Dataset1** (left-most) input of the **Execute Python Script**, and connect the output of the **Execute Python Script** module to the **Web Service Output**. 
 
     ![new-pipeline](images/eps.png)
 
-8. Then modify the settings of the **Execute Python Script** module to use the following code (replacing all existing code):
+8. Then modify the settings of the **Execute Python Script** module double click on it to use the following code (replacing all existing code), click on save and close:
 
 ```Python
 import pandas as pd
@@ -217,6 +216,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 10. Submit the pipeline as a new experiment named **mslearn-designer-predict-diabetes** on the compute cluster you used for training. This may take a while!
 
     ![new-pipeline](images/submit.png)
+    
 
 ## Deploy the inference pipeline as a web service
 
@@ -255,7 +255,7 @@ Now you can test your deployed service from a client application - in this case,
 
     ![new-pipeline](images/startnotebook.png)
 
-5. When the notebook has opened, ensure that the compute instance **Notebook-{DeploymentID}** is selected in the **Compute** box and that it has a status of **Running**.
+5. When the notebook has opened, ensure that the compute instance **Notebook-<inject key="DeploymentID" enableCopy="false"/>** is selected in the **Compute** box and that it has a status of **Running**.
 
 6. In the notebook, replace the **ENDPOINT** and **PRIMARY_KEY** placeholders with the values for your service, which you can copy from the **Consume** tab on the page for your endpoint.
 
