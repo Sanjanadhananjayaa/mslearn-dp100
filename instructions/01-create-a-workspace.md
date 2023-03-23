@@ -8,8 +8,8 @@ In this exercise, you will create and explore an Azure Machine Learning workspac
 
 As its name suggests, a workspace is a centralized place to manage all of the Azure ML assets you need to work on a machine learning project.
 
-1. Open the `Azure portal` in the virtual machine provided on the left side, and login using the credentials provided in the **Environment Details** tab.
-2. On the top search bar, search for **Azure Machine learning** and select Machine learning then click on **+New** or **Create** to create a new **Azure Machine Learning** resource, specifying the following settings:
+1. Open the `Azure portal` shortcut present in the virtual machine desktop, and login to the azure portal using the credentials provided in the **Environment Details** tab.
+2. On the top search bar, type and select **Azure Machine learning**. Click on **+ Create** and then **New workspace** to create a new **Machine Learning workspace**. Enter the following details under the **Basics** tab:
 
     ![](images/ml-workspace.png)
 
@@ -23,7 +23,7 @@ As its name suggests, a workspace is a centralized place to manage all of the Az
     - **Container registry**: None (*one will be created automatically the first time you deploy a model to a container*)
 
 
-  ![](images/mlcreate.png)
+    ![](images/mlcreate.png)
 
 3. Click on **Review+create** then click on **Create**.
 
@@ -33,7 +33,7 @@ As its name suggests, a workspace is a centralized place to manage all of the Az
 
 You can manage some workspace assets in the Azure portal, but for data scientists, this tool contains lots of irrelevant information and links that relate to managing general Azure resources. *Azure Machine Learning studio* provides a dedicated web portal for working with your workspace.
 
-1. On the `Azure portal` blade in the top search bar, search for **machine learning** and select the Machine learning you created in the previous task. 
+1. On the `Azure portal` blade in the top search bar, search for **Machine learning** and select the Machine learning workspace you created in the previous task. 
 2. On the **Overview** page click on the **launch studio** it will open your machine learning workspace in a new tab. Alternatively in a new browser tab, open [https://ml.azure.com](https://ml.azure.com). If prompted, log in using the credentials provided in the **Environment Details** tab and select your Azure subscription and workspace.
 
     ![](images/launchml.png)
@@ -50,7 +50,7 @@ You can manage some workspace assets in the Azure portal, but for data scientist
 One of the benefits of `Azure Machine Learning` is the ability to create cloud-based compute on which you can run experiments and training scripts at scale.
 
 1. In `Azure Machine Learning Studio`, view the **Compute** page on the left panel. This is where you'll manage to compute resources for your data science activities. There are four kinds of compute resources you can create:
-    - **Compute instances**: Development workstations that data scientists can use to work with data and models.
+    - **Compute instances**: Development of workstations that can be used by data scientists to work with data and models.
     - **Compute clusters**: Scalable clusters of virtual machines for on-demand processing of experiment code.
     - **Inference clusters**: Deployment targets for predictive services that use your trained models.
     - **Attached compute**: Links to other Azure compute resources, such as Virtual Machines or Azure Databricks clusters.
@@ -60,7 +60,7 @@ One of the benefits of `Azure Machine Learning` is the ability to create cloud-b
     ![](images/compute-1.png)
 
 2. On the **Compute instances** tab, Click on **NEW** to add a new compute instance with the following settings. You'll use this as a workstation to run code in notebooks.
-    - **Compute name**: *enter a unique name eg:machinelearning{DeploymentID}*
+    - **Compute name**: *enter a unique name eg:machinelearning<inject key="DeploymentID" enableCopy="false"/>*
     - **Location**: *The same region as your workspace*
     - **Virtual machine type**: CPU
     - **Total Available Quotas**:  This shows dedicated cores available.
@@ -89,11 +89,11 @@ A lot of data science and machine learning experimentation is performed by runni
 
 1. In Azure Machine Learning Studio, view the **Notebooks** page on the left panel. If a message describing new features is displayed, close it.
 
-2. Select **use the terminal to clone from git repo** to open a terminal, and ensure that its **Compute** is set to your compute instance and that the current path is the **/users/your-user-name** folder.
+2. Click on the **open a terminal** icon to use the terminal to clone a git repository, and ensure that its **Compute instance** is set to the instance that was created in the previous task. The current path must be **/Users/your-user-name** folder. Please refer to the below image for more clarity.
 
     ![](images/module1/1.png)
 
-3. Enter the following commands to clone a Git repository containing notebooks, data, and other files to your workspace:
+3. Enter the following commands to clone a Git repo containing notebooks, data, and other files to your workspace:
 
     ```bash
     git clone https://github.com/MicrosoftLearning/mslearn-dp100 mslearn-dp100
@@ -106,6 +106,6 @@ A lot of data science and machine learning experimentation is performed by runni
     ![](images/module1/3.png)
 
 5. Close the terminal pane, terminating the session.
-6. In the **Users/*odl_user_{DeploymentID}*/mslearn-dp100** folder, open the **Get Started with Notebooks** notebook. Then read the notes and follow the instructions it contains.
+6. In the **Users/*odl_user_<inject key="DeploymentID" enableCopy="false"/>*/mslearn-dp100** folder, open the **Get Started with Notebooks** notebook. Then read the notes and follow the instructions it contains.
 
 > **Tip**: To run a code cell, select the cell you want to run and then use the **&#9655;** button to run it.
