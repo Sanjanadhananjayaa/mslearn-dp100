@@ -4,9 +4,9 @@
 
 1. **It is necessary that after completing this exercise, then proceed to the next one**.
 
-1. After signing into the azure portal using the credentials provided, Search for **Resource Groups** in the search bar.
+1. After signing into the azure portal using the credentials provided in the environment details page, Search for **Resource Groups** in the search bar.
 
-1. Then you will find the **dp-100-<inject key="DeploymentID" enableCopy="false"/>**. Click on **dp-100-<inject key="DeploymentID" enableCopy="false"/>** to find the resources for the lab.
+1. You will find the **dp-100-<inject key="DeploymentID" enableCopy="false"/>** resource group. Click on **dp-100-<inject key="DeploymentID" enableCopy="false"/>** to find the resources for the lab.
 
     ![](images/img1.png)
 
@@ -20,7 +20,7 @@
     
 1. Find **compute** from the Left navigation pane.
 
-    ![](images/img4.png)
+    ![](images/compute-1.png)
     
 1. Under **compute instances** you can find **notebook<inject key="DeploymentID" enableCopy="false"/>**. Click on **Jupyter** (make sure to click on **Jupyter** not **JupyterLab**) to run the notebook to perform the lab. A lot of data science and machine learning experimentation is performed by running code in *notebooks*. Your compute instance includes fully featured Python notebook environments (*Jupyter* and *JuypyterLab*) that you can use for extensive work.
 
