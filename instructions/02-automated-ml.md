@@ -62,11 +62,12 @@ Now that you have some compute resources that you can use to process data, you'l
     ![](images/localfiles.png)
     
     * **On storage type pane leave the default then click on next**:
-        * **Upload path**: *Leave the default selection*
-        
-        ![](images/next.png)
     
+      ![](images/next.png)
+        
+        
     * **File or folder selection pane upload your file, then click on next.**:
+        * **Upload path**: *Leave the default selection*
         * **Select or create a datastore**: Currently selected datastore
         * **Select files for your dataset**: click on upload and Browse to the **diabetes.csv** file you downloaded.
     
@@ -107,13 +108,13 @@ In Azure Machine Learning, operations that you run are called *experiments*. Fol
 
     - **Select dataset**:
         - **Dataset**: diabetesdataset
-    - **Configure run**:
+    - **Configure job**:
         - **New experiment name**: mslearn-automl-diabetes
         - **Target column**: Diabetic (*this is the label the model will be trained to predict)*
         - **Select compute type**: Compute cluster
         - **Select Azure ML compute cluster**: *the compute cluster you created previously*
         
-    ![](images/ste2configrun.png)
+    ![](images/dp-100-compute.png)
     
     - **Task type and settings**:
         - **Task type**: Classification
