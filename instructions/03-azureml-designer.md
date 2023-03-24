@@ -12,14 +12,16 @@ Now that you have some compute resources that you can use to process data, you'l
 
 2. In Azure Machine Learning Studio, in **Assets** pane select **Data** option on the left panel. Data assets represent specific data files or tables that you plan to work with in Azure ML.
 
-   ![](images/dp100.png)
+    ![](images/dp100.png)
 
 3. Create a new dataset from local files, using the following settings:
     
-    * **Basic Info**:
+    * **On data type pane, basic Info for create data asset then click on next.**:
         * **Name**: diabetesdataset
         * **type**: Tabular
         * **Description**: Diabetes data
+
+     ![](images/datasetss2.png)
         
     * **On data source pane Choose from local files option then click on next.**:
     ![](images/localfiles.png)
@@ -144,7 +146,7 @@ With the data flow steps defined, you're now ready to run the training pipeline 
 
     **Tip**: While it's running, you can view the pipeline and experiment that have been created in the **Pipelines** pages. Switch back to the **Visual Diabetes Training** pipeline on the **Designer** page when you're done.
     
-    >Note: if the pipeline failed, perform the step-2 again.
+    **Note**: if the pipeline failed, perform the step-2 again.
 
 3. After the **Normalize Data** module has been completed, Double click on it, on the **Outputs + logs** tab, under **Data outputs** in the **Transformed dataset** section, click the **preview Data** icon, and note that you can view statistics and distribution visualizations for the transformed columns.
 
