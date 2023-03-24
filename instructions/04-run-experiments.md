@@ -61,6 +61,8 @@ Experiments in Azure Machine Learning need to be initiated from some sort of *co
 
     ![](images/runexp.png)
 
-3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu
+3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu.
+
+> **Note**: Kindly wait after you run each code cell until the output for the code is shown and CPU utilization is 0% else the succeeding code cells will not get executed.
 
 4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
