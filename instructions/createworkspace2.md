@@ -8,7 +8,7 @@
 
 1. You will find the **dp-100-<inject key="DeploymentID" enableCopy="false"/>** resource group. Click on **dp-100-<inject key="DeploymentID" enableCopy="false"/>** to find the resources for the lab.
 
-    ![](images/img1.png)
+    ![](images/dp100_page2-rg.png)
 
 1. Find the machine learning workspace named **quick-start-ws-<inject key="DeploymentID" enableCopy="false"/>**, Click to open it.
 
@@ -28,7 +28,7 @@
     
 1. A pop-up appears, select **Yes, I Understand** and click on **Continue**.
 
-    ![](images/img6.png)
+    ![](images/dp100_page2-trustedCode.png)
     
 1. The Jupyter will open in a new window, Click on **New** then select **Terminal** to open a new terminal.
 
