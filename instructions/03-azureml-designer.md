@@ -12,9 +12,9 @@ Now that you have some compute resources that you can use to process data, you'l
 
 2. In Azure Machine Learning Studio, in **Assets** pane select **Data** option on the left panel. Data assets represent specific data files or tables that you plan to work with in Azure ML.
 
-3. Create a new dataset from local files, using the following settings:
+   ![](images/dp100.png)
 
-    ![](images/dp100.png)
+3. Create a new dataset from local files, using the following settings:
     
     * **Basic Info**:
         * **Name**: diabetesdataset
