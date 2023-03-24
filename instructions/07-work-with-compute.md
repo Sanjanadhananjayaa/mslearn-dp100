@@ -32,7 +32,9 @@ In this exercise, the code to work with compute is provided in a notebook.
 
     ![](images/runcompute.png)
 
-3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu.
+3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu and follow the below instruction mentioned in the image to identify whether run has completed or still running the code.
 
+    ![](images/note.png)
+    
 4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
 
