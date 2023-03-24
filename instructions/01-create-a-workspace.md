@@ -12,6 +12,8 @@ As its name suggests, a workspace is a centralized place to manage all of the Az
 2. On the top search bar, type and select **Azure Machine learning**. Click on **+ Create** and then **New workspace** to create a new **Machine Learning workspace**. Enter the following details under the **Basics** tab:
 
     ![](images/ml-workspace.png)
+    
+    ![](images/dp100_01-01.png)
 
     - **Subscription**: *Your Azure subscription*
     - **Resource group**: Select **dp-100-<inject key="DeploymentID" enableCopy="false"/>**
