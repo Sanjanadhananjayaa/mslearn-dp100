@@ -32,5 +32,7 @@ In this exercise, the code to deploy a model as a real-time inferencing service 
 
 3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu.
 
+   > **Note**: Kindly wait after you run each code cell until the CPU utilization is 0% else the succeeding code cells will not get executed.
+
 4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
 
