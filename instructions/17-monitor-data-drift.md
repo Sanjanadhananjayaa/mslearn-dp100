@@ -38,4 +38,6 @@ In this exercise, the code to monitor data drift is provided in a notebook.
 
 >**Note**: While running the cells, you might get an error saying **Datastore.upload** is deprecated. Ignore it and carry on with running the next cells.
 
+> **Note**: Kindly wait after you run each code cell until the output for the code is shown and CPU utilization is 0% else the succeeding code cells will not get executed.
+
 4. When you have finished running the code in the notebook, on the **File** menu, click **Close and Halt** to close it and shut down its Python kernel. Then close all Jupyter browser tabs.
