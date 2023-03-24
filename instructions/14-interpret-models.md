@@ -34,7 +34,7 @@ In this exercise, the code to interpret models is provided in a notebook.
 
 3. Then read the notes in the notebook, running each code cell in turn. To run each cell select and click on **Run** on the menu and follow the below instruction mentioned in the image to identify whether run has completed or still running the code.
 
-    ![](images/note.png)
+    ![](images/Note.png)
 
 >**Note**: If you see a pop up saying **Kernel Not Found**, From the dropdown select the **Python 3.8 - AzureML** and **Set Kernel**
 
