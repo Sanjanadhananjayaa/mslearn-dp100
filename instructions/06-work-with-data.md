@@ -26,7 +26,7 @@ While you can use the **Notebooks** page in Azure Machine Learning studio to run
 
 In this exercise, the code to work with data is provided in a notebook.
 
-1. In the Jupyter home page, browse to the **Users/mslearn-dp100** or **Users/*{Username}*/mslearn-dp100** folder where you cloned the notebook repository. 
+1. In the Jupyter home page, browse to the **Users/mslearn-dp100** folder where you cloned the notebook repository. 
 
 2. Click on **Work with Data** (06 - Work with Data.ipynb) notebook to open the new tab.
 
