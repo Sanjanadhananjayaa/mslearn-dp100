@@ -170,7 +170,7 @@ Now that you have used a *training pipeline* to train a model, you can create an
 
     ![new-pipeline](images/rename.png)
 
-3. Note that the inference pipeline assumes that new data will match the schema of the original training data, so the **diabetesdataset** dataset from the training pipeline is included. However, this input data includes the **Diabetic** label that the model predicts, which is unintuitive to include in new patient data for which a diabetes prediction has not yet been made.
+3. Note that the inference pipeline assumes that new data will match the schema of the original training data, so the **diabetes dataset** dataset from the training pipeline is included. However, this input data includes the **Diabetic** label that the model predicts, which is unintuitive to include in new patient data for which a diabetes prediction has not yet been made.
 
 4. Delete the **diabetesdataset** dataset from the inference pipeline and replace it with an **Enter Data Manually** module from the **Components** section; connecting it to the same **dataset** input of the **Apply Transformation** module, in the **Components** section search and drag **Web Service Input** and connect it with the same **dataset** input of the **Apply Transformation** module. 
 
@@ -178,12 +178,12 @@ Now that you have used a *training pipeline* to train a model, you can create an
 
 5. Then modify the settings of the **Enter Data Manually** module by double clicking it to use the following CSV input, which includes feature values without labels for three new patient observations, select save and close:
 
-```CSV
-PatientID,Pregnancies,PlasmaGlucose,DiastolicBloodPressure,TricepsThickness,SerumInsulin,BMI,DiabetesPedigree,Age
-1882185,9,104,51,7,24,27.36983156,1.350472047,43
-1662484,6,73,61,35,24,18.74367404,1.074147566,75
-1228510,4,115,50,29,243,34.69215364,0.741159926,59
-```
+    ```CSV
+    PatientID,Pregnancies,PlasmaGlucose,DiastolicBloodPressure,TricepsThickness,SerumInsulin,BMI,DiabetesPedigree,Age
+    1882185,9,104,51,7,24,27.36983156,1.350472047,43
+    1662484,6,73,61,35,24,18.74367404,1.074147566,75
+    1228510,4,115,50,29,243,34.69215364,0.741159926,59
+    ```
 
    ![new-pipeline](images/enterdataedit.png)
 
@@ -195,19 +195,19 @@ PatientID,Pregnancies,PlasmaGlucose,DiastolicBloodPressure,TricepsThickness,Seru
 
 8. Then modify the settings of the **Execute Python Script** module double click on it to use the following code (replacing all existing code), click on save and close:
 
-```Python
-import pandas as pd
+    ```Python
+    import pandas as pd
 
-def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1 = None, dataframe2 = None):
 
-    scored_results = dataframe1[['PatientID', 'Scored Labels', 'Scored Probabilities']]
-    scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
-                                    'Scored Probabilities':'Probability'},
-                            inplace=True)
-    return scored_results
-```
+        scored_results = dataframe1[['PatientID', 'Scored Labels', 'Scored Probabilities']]
+        scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
+                                        'Scored Probabilities':'Probability'},
+                                inplace=True)
+        return scored_results
+    ```
 
-> **Note**: After pasting the code in the **Execute Python Script** module, verify that the code looks similar to the code above. Indentations are important in Python and the module will fail if the indentations are not copied correctly. 
+>**Note**: After pasting the code in the **Execute Python Script** module, verify that the code looks similar to the code above. Indentations are important in Python and the module will fail if the indentations are not copied correctly. 
 
    ![new-pipeline](images/python.png)
 
@@ -224,7 +224,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 Now you have an inference pipeline for real-time inferencing, which you can deploy as a web service for client applications to use.
 
-> **Note**: In this exercise, you'll deploy the web service to an Azure Container Instance (ACI). This type of compute is created dynamically and is useful for development and testing. For production, you should create an *inference cluster*, which provides an Azure Kubernetes Service (AKS) cluster that provides better scalability and security.
+>**Note**: In this exercise, you'll deploy the web service to an Azure Container Instance (ACI). This type of compute is created dynamically and is useful for development and testing. For production, you should create an *inference cluster*, which provides an Azure Kubernetes Service (AKS) cluster that provides better scalability and security.
 
 1. If the **Predict Diabetes** inference pipeline has not yet finished running, await its completion. Then visualize the **Result dataset** output of the **Execute Python Script** module to see the predicted labels and probabilities for the three patient observations in the input data.
 
